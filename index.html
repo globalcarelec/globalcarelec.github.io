@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOBAL CARE SERVICE d.o.o. BEOGRAD</title>
+    <meta name="description" content="Naučno upravljanje i strateški menadžment - Global Care Service d.o.o. Beograd">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            primary: '#0e7490', 
+                            light: '#f8fafc',
+                            accent: '#22d3ee'
+                        }
+                    },
+                    borderRadius: {
+                        '3xl': '1.5rem',
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f9ff 0%, #cffafe 100%);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-600 bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 left-0 transition-all duration-300" id="navbar">
+        <div class="glass-panel border-b border-slate-100">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-brand-dark tracking-tight">
+                    GLOBAL CARE <span class="text-brand-primary">SERVICE</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center font-medium">
+                    <a href="#about" class="hover:text-brand-primary transition-colors">O nama</a>
+                    <a href="#services" class="hover:text-brand-primary transition-colors">Usluge</a>
+                    <a href="#process" class="hover:text-brand-primary transition-colors">Proces</a>
+                    <a href="#benefits" class="hover:text-brand-primary transition-colors">Prednosti</a>
+                    <button onclick="openContactModal()" class="bg-brand-dark text-white px-6 py-2.5 rounded-full hover:bg-brand-primary transition-all duration-300 shadow-lg shadow-brand-primary/20 transform hover:-translate-y-0.5">
+                        Kontaktirajte nas
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-2xl text-brand-dark">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
+        <div class="absolute inset-0 z-0">
+            <!-- Modern abstract background image -->
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Office Background" class="w-full h-full object-cover opacity-5">
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <span class="inline-block py-1 px-3 rounded-full bg-cyan-100 text-brand-primary text-sm font-semibold mb-6">
+                    Naučni pristup menadžmentu
+                </span>
+                <h1 class="text-5xl lg:text-7xl font-bold text-brand-dark mb-6 leading-tight tracking-tight">
+                    Sinergija nauke i <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent">poslovne strategije</span>
+                </h1>
+                <p class="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Global Care Service d.o.o. Beograd implementira napredne analitičke metode za optimizaciju vaših poslovnih procesa, transformišući podatke u održiv uspeh.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="openContactModal()" class="bg-brand-dark text-white px-8 py-4 rounded-2xl hover:bg-brand-primary transition-all duration-300 shadow-xl shadow-slate-200 font-semibold text-lg">
+                        Započnite saradnju
+                    </button>
+                    <a href="#services" class="bg-white text-brand-dark border border-slate-200 px-8 py-4 rounded-2xl hover:bg-slate-50 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-2">
+                        Naše usluge <i class="fa-solid fa-arrow-down text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image Cards (Simulating the overlapping cards from reference) -->
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 fade-in" style="animation-delay: 0.2s;">
+                <div class="bg-white p-4 rounded-3xl shadow-xl shadow-slate-200/50 transform hover:-translate-y-2 transition-transform duration-500">
+                    <div class="h-48 rounded-2xl bg-cover bg-center mb-4" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')"></div>
+                    <div class="px-2 pb-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-brand-primary">Analitika</span>
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-brand-dark text-lg">Preciznost podataka</h3>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-3xl shadow-xl shadow-slate-200/50 transform md:-translate-y-12 hover:md:-translate-y-14 transition-transform duration-500 relative z-20">
+                    <div class="h-48 rounded-2xl bg-cover bg-center mb-4" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80')"></div>
+                    <div class="px-2 pb-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-brand-primary">Strategija</span>
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-brand-dark text-lg">Liderski menadžment</h3>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-3xl shadow-xl shadow-slate-200/50 transform hover:-translate-y-2 transition-transform duration-500">
+                    <div class="h-48 rounded-2xl bg-cover bg-center mb-4" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80')"></div>
+                    <div class="px-2 pb-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-brand-primary">Inovacija</span>
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-brand-dark text-lg">Tehnološki rast</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Team meeting" class="rounded-3xl shadow-2xl z-10 relative">
+                        <!-- Decorative element -->
+                        <div class="absolute -bottom-10 -left-10 w-full h-full bg-slate-100 rounded-3xl -z-0 hidden lg:block"></div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h4 class="text-brand-primary font-bold uppercase tracking-wider text-sm mb-4">O kompaniji</h4>
+                    <h2 class="text-4xl font-bold text-brand-dark mb-6">Arhitekte korporativne izvrsnosti</h2>
+                    <p class="text-lg leading-relaxed text-slate-600 mb-6">
+                        GLOBAL CARE SERVICE d.o.o. BEOGRAD nije samo konsultantska firma; mi smo vaš strateški partner u svetu naučnog menadžmenta. Osnovani sa vizijom da integrišemo akademsku preciznost u dinamično poslovno okruženje, naš tim stručnjaka pruža rešenja koja su merljiva i održiva.
+                    </p>
+                    <p class="text-lg leading-relaxed text-slate-600 mb-6">
+                        Verujemo da se pravi uspeh krije u detaljnoj analizi i razumevanju specifičnosti svakog klijenta. Kroz kombinaciju inovativnih softverskih alata i proverenih menadžerskih metodologija, podižemo efikasnost vašeg poslovanja na viši nivo. Naša posvećenost detaljima i etički pristup poslovanju čine nas pouzdanim izborom za kompanije koje teže liderstvu.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold text-brand-dark mb-4">Naše ekspertize</h2>
+                <p class="text-slate-500 text-lg">Sveobuhvatna rešenja dizajnirana da odgovore na najkompleksnije izazove modernog tržišta.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-primary text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-4">Naučno Istraživanje</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Sprovodimo dubinske analize tržišta koristeći napredne statističke modele i naučne metode predviđanja. Naš pristup osigurava da svaka odluka koju donesete bude potkrepljena čvrstim empirijskim podacima, minimizirajući rizik.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                    <div class="w-14 h-14 bg-cyan-50 rounded-2xl flex items-center justify-center text-brand-primary text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chess-knight"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-4">Strateški Menadžment</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Kreiramo dugoročne planove razvoja koji usklađuju vaše interne resurse sa eksternim prilikama na tržištu. Fokusiramo se na optimizaciju organizacione strukture kako bismo stvorili agilan sistem spreman za promene.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 group">
+                    <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-brand-primary text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-4">Optimizacija Procesa</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Identifikujemo uska grla u vašem poslovanju i implementiramo rešenja za povećanje produktivnosti. Kroz reviziju operativnih procedura, smanjujemo troškove i povećavamo kvalitet finalnog proizvoda ili usluge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process / How we work -->
+    <section id="process" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-primary opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-accent opacity-10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Metodologija rada</h2>
+                <p class="text-slate-300 text-lg">Strukturiran put od problema do rešenja.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-700/50 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 text-center">
+                    <div class="w-24 h-24 mx-auto bg-brand-dark border-4 border-brand-primary rounded-full flex items-center justify-center text-3xl font-bold mb-8 shadow-[0_0_30px_rgba(14,116,144,0.4)]">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Dijagnostika</h3>
+                    <p class="text-slate-400">
+                        Detaljno snimanje trenutnog stanja, prikupljanje podataka i definisanje ključnih indikatora performansi (KPI).
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 text-center">
+                    <div class="w-24 h-24 mx-auto bg-brand-dark border-4 border-white rounded-full flex items-center justify-center text-3xl font-bold mb-8">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Implementacija</h3>
+                    <p class="text-slate-400">
+                        Primena definisanih strategija uz aktivno praćenje rezultata i prilagođavanje procesa u realnom vremenu.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 text-center">
+                    <div class="w-24 h-24 mx-auto bg-brand-dark border-4 border-brand-accent rounded-full flex items-center justify-center text-3xl font-bold mb-8 shadow-[0_0_30px_rgba(34,211,238,0.4)]">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Evaluacija</h3>
+                    <p class="text-slate-400">
+                        Analiza postignutih rezultata, izveštavanje i postavljanje novih ciljeva za kontinuirani napredak.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages / Why Us -->
+    <section id="benefits" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2">
+                    <h4 class="text-brand-primary font-bold uppercase tracking-wider text-sm mb-4">Zašto izabrati nas</h4>
+                    <h2 class="text-4xl font-bold text-brand-dark mb-8">Prednosti partnerstva sa Global Care Service</h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-green-50 text-green-600 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-dark mb-2">Dokazana Stručnost</h3>
+                                <p class="text-slate-600">
+                                    Naš tim čine sertifikovani eksperti sa višegodišnjim iskustvom u međunarodnom korporativnom okruženju, garantujući najviši standard usluge.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-dark mb-2">Inovativni Pristup</h3>
+                                <p class="text-slate-600">
+                                    Ne koristimo šablonska rešenja. Svaka strategija je unikatna, krojena prema specifičnim potrebama i kulturi vaše organizacije.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-brand-dark mb-2">Fokus na Rezultat</h3>
+                                <p class="text-slate-600">
+                                    Naš uspeh merimo vašim uspehom. Posvećeni smo ostvarivanju konkretnih, merljivih rezultata koji direktno utiču na vaš profit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80" alt="Office Collaboration" class="rounded-3xl shadow-2xl w-full object-cover h-[600px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-16 bg-brand-primary bg-opacity-5">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-brand-dark mb-8">Spremni za transformaciju poslovanja?</h2>
+            <button onclick="openContactModal()" class="bg-brand-dark text-white px-10 py-4 rounded-2xl hover:bg-brand-primary transition-all duration-300 shadow-xl text-lg font-semibold">
+                Zakažite konsultacije
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <a href="#" class="text-2xl font-bold text-white tracking-tight block mb-6">
+                        GLOBAL CARE <span class="text-brand-primary">SERVICE</span>
+                    </a>
+                    <p class="mb-6">
+                        Vaš pouzdan partner u naučnom upravljanju i poslovnom razvoju. Gradimo budućnost na temeljima znanja.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold mb-6">Navigacija</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#about" class="hover:text-white transition-colors">O nama</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Usluge</a></li>
+                        <li><a href="#process" class="hover:text-white transition-colors">Proces rada</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold mb-6">Pravne informacije</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white transition-colors">Politika privatnosti</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Uslovi korišćenja</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-white font-bold mb-6">Kontakt Info</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-primary"></i>
+                            <span>
+                                Slobodana Jovića 17b<br>
+                                PAK 169216 Beograd (Voždovac)<br>
+                                Srbija
+                            </span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-primary"></i>
+                            <a href="mailto:main@globalcareservice.pro" class="hover:text-white transition-colors">main@globalcareservice.pro</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-slate-800 text-center text-sm">
+                <p>&copy; 2024 GLOBAL CARE SERVICE d.o.o. BEOGRAD. Sva prava zadržana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 z-50 hidden">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm modal-overlay" onclick="closeContactModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-lg p-4">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden modal-content scale-95 opacity-0" id="modalContentInner">
+                <div class="bg-brand-dark p-6 text-white flex justify-between items-center">
+                    <h3 class="text-xl font-bold">Pošaljite nam poruku</h3>
+                    <button onclick="closeContactModal()" class="text-slate-300 hover:text-white transition-colors">
+                        <i class="fa-solid fa-xmark text-2xl"></i>
+                    </button>
+                </div>
+                
+                <div class="p-8">
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-slate-700 mb-2">Vaše Ime</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition-all" placeholder="Petar Petrović">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email Adresa</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition-all" placeholder="petar@primer.com">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-slate-700 mb-2">Poruka</label>
+                            <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition-all resize-none" placeholder="Kako vam možemo pomoći?"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-brand-dark text-white font-bold py-4 rounded-xl hover:bg-brand-primary transition-colors shadow-lg shadow-brand-primary/20">
+                            Pošalji poruku
+                        </button>
+                        
+                        <p class="text-xs text-center text-slate-400 mt-4">
+                            Vaši podaci su sigurni. Ne delimo ih sa trećim licima.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeSuccessModal()"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-sm p-4">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 text-center animate-[fadeIn_0.3s_ease-out]">
+                <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-brand-dark mb-2">Hvala Vam!</h3>
+                <p class="text-slate-600 mb-6">Vaša poruka je uspešno poslata. Naš tim će vas kontaktirati uskoro.</p>
+                <button onclick="closeSuccessModal()" class="bg-brand-dark text-white px-8 py-3 rounded-xl hover:bg-brand-primary transition-colors w-full font-semibold">
+                    Zatvori
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('contactModal');
+        const modalContent = document.getElementById('modalContentInner');
+        const successModal = document.getElementById('successModal');
+        const form = document.getElementById('contactForm');
+
+        function openContactModal() {
+            modal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeContactModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            // Simulate API call
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Slanje...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                closeContactModal();
+                btn.innerText = originalText;
+                btn.disabled = false;
+                form.reset();
+                
+                // Show success modal
+                successModal.classList.remove('hidden');
+            }, 1000);
+        }
+
+        function closeSuccessModal() {
+            successModal.classList.add('hidden');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
